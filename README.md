@@ -1,98 +1,109 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+### Projeto Final do Bloco 2 - Generation Brasil
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# 🏥 Sistema de Comércio Eletrônico para Farmácia
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este projeto é um sistema de **backend** de um e-commerce para uma farmácia, desenvolvido como projeto final do bloco 2 do bootcamp da Generation Brasil. O objetivo principal é criar uma solução que otimize as operações de gerenciamento de medicamentos, estoque, vendas e atendimento ao cliente, atendendo às necessidades específicas do setor farmacêutico.
 
-## Description
+A API foi desenvolvida seguindo as melhores práticas do **backend** e está documentada com **Swagger**, o que facilita a visualização e o teste das rotas.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+### 📈 Diagrama das classes do projeto 
 
-```bash
-$ npm install
-```
+<div align='center'>
+  <img src='./src/assets/diagrama_DER.png' />
+</div>
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+### 🚀 Tecnologias Utilizadas
 
-# watch mode
-$ npm run start:dev
+* **Linguagem:** TypeScript
+* **Framework:** NestJS
+* **ORM:** TypeORM
+* **Banco de Dados:** MySQL
+* **Documentação:** Swagger
+* **Gerenciador de Pacotes:** npm ou yarn
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Run tests
+### 💻 Funcionalidades da API
 
-```bash
-# unit tests
-$ npm run test
+A API foi projetada para gerenciar as duas principais entidades do sistema: **Categorias** e **Produtos**.
 
-# e2e tests
-$ npm run test:e2e
+#### **Categorias de Produtos Farmacêuticos**
 
-# test coverage
-$ npm run test:cov
-```
+* **`GET` `/categorias`**: Busca todas as categorias de produtos.
+* **`GET` `/categorias/id/:id`**: Busca uma categoria específica pelo seu ID.
+* **`GET` `/categorias/nome/:nome`**: Busca categorias por um nome parcial ou completo.
+* **`GET` `/categorias/precisa_receita`**: Busca todas as categorias de produtos que exigem receita médica.
+* **`POST` `/categorias`**: Cria uma nova categoria.
+* **`PUT` `/categorias`**: Atualiza uma categoria existente.
+* **`DELETE` `/categorias/id/:id`**: Deleta uma categoria pelo seu ID.
 
-## Deployment
+#### **Produtos Farmacêuticos**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+* **`GET` `/produtos`**: Retorna todos os produtos cadastrados.
+* **`GET` `/produtos/id/:id`**: Busca um produto específico pelo seu ID.
+* **`GET` `/produtos/nome/:nome`**: Busca produtos pelo nome (parcial ou completo).
+* **`GET` `/produtos/descricao/:descricao`**: Busca produtos por palavras-chave na descrição.
+* **`GET` `/produtos/principio/:principio`**: Busca produtos pelo princípio ativo.
+* **`GET` `/produtos/codigo/:codigo`**: Busca produtos pelo código de barras.
+* **`POST` `/produtos`**: Cria um novo produto, associando-o a uma categoria existente.
+* **`PUT` `/produtos`**: Atualiza um produto existente.
+* **`DELETE` `/produtos/id/:id`**: Deleta um produto pelo seu ID.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+---
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+### 🛠️ Como Executar o Projeto
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Para rodar este projeto na sua máquina, siga os passos abaixo:
 
-## Resources
+1.  **Pré-requisitos:**
+    * Node.js (versão 18 ou superior)
+    * Um servidor MySQL
+    * Um gerenciador de pacotes (npm ou yarn)
 
-Check out a few resources that may come in handy when working with NestJS:
+2.  **Configuração do Banco de Dados:**
+    * Crie um banco de dados no seu servidor MySQL com o nome `db_farmagen`.
+    * Execute o script `db_farmagen.sql` para criar as tabelas e popular o banco com dados de exemplo.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+3.  **Configuração do Ambiente:**
+    * Crie um arquivo `.env` na raiz do projeto.
+    * Copie o conteúdo do arquivo `.env_sample` para o seu novo arquivo `.env` e preencha com as suas credenciais de acesso ao banco de dados:
+        ```env
+        DB_HOST=localhost
+        DB_PORT=3306
+        DB_USERNAME=seu_usuario
+        DB_PASSWORD=sua_senha
+        DB_NAME=db_farmagen
+        PORT=4000
+        ```
 
-## Support
+4.  **Instalação e Execução:**
+    * Instale as dependências do projeto:
+        ```bash
+        npm install
+        ```
+    * Inicie a aplicação:
+        ```bash
+        npm run start:dev
+        ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+### 📄 Documentação da API (Swagger)
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+A documentação interativa da API está disponível no endpoint `/swagger` após a inicialização do servidor. Você pode acessá-la em:
 
-## License
+* **`http://localhost:4000/swagger`**
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
+
+### 🤝 Contribuidor
+
+* **Lucas Alves Pinheiro** - [@RaideriSpace](https://github.com/RaideriSpace/projeto_final_bloco_02) - l.pinheiro.w@gmail.com
+
+---
+
+Este projeto foi desenvolvido como parte do bootcamp da **Generation Brasil**.

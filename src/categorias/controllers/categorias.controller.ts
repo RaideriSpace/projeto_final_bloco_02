@@ -1,3 +1,4 @@
+import { ApiTags } from '@nestjs/swagger';
 import { Categorias } from '../entities/categorias.entity';
 import { CategoriasService } from './../services/categoria.service';
 import {
@@ -13,6 +14,7 @@ import {
   Put,
 } from '@nestjs/common';
 
+@ApiTags("Categorias de Produtos Farmaceuticos")
 @Controller('/categorias')
 export class CategoriasController {
   constructor(private readonly categoriasService: CategoriasService) {}

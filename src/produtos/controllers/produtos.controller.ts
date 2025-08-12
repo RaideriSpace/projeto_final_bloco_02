@@ -12,7 +12,9 @@ import {
 } from '@nestjs/common';
 import { ProdutosService } from '../services/produtos.service';
 import { Produtos } from '../entities/produtos.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Produtos Farmaceuticos")
 @Controller('/produtos')
 export class ProdutosController {
   constructor(private readonly produtosService: ProdutosService) {}
@@ -58,7 +60,7 @@ export class ProdutosController {
   }
 
   @Post()
-  @HttpCode(HttpStatus.CREATED)
+  @HttpCode(HttpStatus.CREATED) 
   createProduto(
     @Body() produto: Produtos,
   ): Promise<{ message: string; produto: Produtos }> {
