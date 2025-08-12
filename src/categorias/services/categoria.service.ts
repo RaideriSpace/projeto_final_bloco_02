@@ -26,6 +26,9 @@ export class CategoriasService {
       where: {
         id,
       },
+      relations: {
+        produtos: true,
+      },
     });
 
     if (!categoria)
@@ -38,6 +41,9 @@ export class CategoriasService {
     const categoriasList = await this.categoriasRepo.find({
       where: {
         categoria_nome: ILike(`%${nome}%`),
+      },
+      relations: {
+        produtos: true,
       },
     });
 
@@ -54,6 +60,9 @@ export class CategoriasService {
     const categoriasList = await this.categoriasRepo.find({
       where: {
         precisaReceita: true,
+      },
+      relations: {
+        produtos: true,
       },
     });
 

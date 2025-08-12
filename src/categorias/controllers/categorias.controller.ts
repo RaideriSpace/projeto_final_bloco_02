@@ -33,13 +33,13 @@ export class CategoriasController {
 
   @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
-  findByCategoriaNome(@Param('nome') nome: string): Promise<Categorias[]> {
+  findAllCategoriaByNome(@Param('nome') nome: string): Promise<Categorias[]> {
     return this.categoriasService.findAllCategoriaByNome(nome);
   }
 
   @Get('/precisa_receita')
   @HttpCode(HttpStatus.OK)
-  findByCategoriaReceitaTrue(): Promise<Categorias[]> {
+  findAllCategoriaReceitaTrue(): Promise<Categorias[]> {
     return this.categoriasService.findAllCategoriaReceitaTrue();
   }
 
